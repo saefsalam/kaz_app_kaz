@@ -6,8 +6,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaz_app_kaz/colors.dart';
 import 'package:kaz_app_kaz/screens/addpost.dart';
-import 'package:kaz_app_kaz/screens/home.dart';
-import 'package:kaz_app_kaz/screens/search.dart';
+import 'package:kaz_app_kaz/screens/profile.dart';
+
+import 'package:kaz_app_kaz/screens/tabs/tabbar.dart';
+import 'package:kaz_app_kaz/screens/visitpage.dart';
 
 // import 'package:instagram_app/screens/add_post.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
@@ -32,9 +34,9 @@ class _MobileScerrenState extends State<MobileScerren> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Theme.of(context).colorScheme.primary,
       bottomNavigationBar: CupertinoTabBar(
-          backgroundColor: mobileBackgroundColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           onTap: (index) {
             // navigate to the tabed page
             _pageController.jumpToPage(index);
@@ -48,31 +50,26 @@ class _MobileScerrenState extends State<MobileScerren> {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  color: currentPage == 0 ? primaryColor : secondaryColor,
+                  color: currentPage == 0 ? secondaryColor : primaryColor1,
+                ),
+                label: "الرىيسية",),
+            
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.live_tv_outlined,
+                  color: currentPage == 1 ? secondaryColor : primaryColor1,
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.search,
-                  color: currentPage == 1 ? primaryColor : secondaryColor,
+                  Icons.menu_book_outlined,
+                  color: currentPage == 2 ? secondaryColor : primaryColor1,
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.add_circle,
-                  color: currentPage == 2 ? primaryColor : secondaryColor,
-                ),
-                label: ""),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.favorite,
-                  color: currentPage == 3 ? primaryColor : secondaryColor,
-                ),
-                label: ""),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
-                  color: currentPage == 4 ? primaryColor : secondaryColor,
+                  Icons.settings,
+                  color: currentPage == 3 ? secondaryColor : primaryColor1,
                 ),
                 label: ""),
           ]),
@@ -83,11 +80,10 @@ class _MobileScerrenState extends State<MobileScerren> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         children: [
-          Home(),
-          Search(),
-          AddPost(),
-          Center(child: Text("Love u ♥")),
-          // Profile(),
+          TabBars(),
+          MyApp21(),
+          VisitPage(),
+          SettingsPage(),
         ],
       ),
     );

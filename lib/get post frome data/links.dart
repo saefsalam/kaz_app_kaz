@@ -1,10 +1,7 @@
-// links.dart
-const String URL = "http://localhost/project/";
-const String GETPOSTS = URL + "getposts.php";
-const String IMG = URL;  // يمكنك تحديد القيمة حسب هيكل مجلد الصور في مشروعك
+// ignore_for_file: constant_identifier_names
 
-
-const String GETIMG1 = URL + "getimg.php";
-
-
-// const String port = "3306";
+const String URL = "http://192.168.0.190/project/";
+const String GETPOSTS = "${URL}getposts.php";
+const String IMG1 = "${URL}imgges/";  // اضفت المسار الكامل لمجلد الصور
+const String IMG = "${URL}imgges/";  // اضفت المسار الكامل لمجلد الصور
+const String GETIMG1 = "${URL}getimg.php";
